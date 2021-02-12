@@ -15,3 +15,5 @@ if (!connectionString) {
 // TODO gagnagrunnstengingar
 const pool = new pg.Pool({connectionString});
 const client = await pool.connect();
+
+export default client;

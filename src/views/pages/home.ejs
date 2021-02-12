@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fræðslumyndbandaleigan</title>
+    <title>Ísland úr NATO</title>
     <link rel='stylesheet' href='./styles.css' />
   </head>
   <body>
-    <h2>sadsffsdfs</h2>
-    <form action="" method="post">
-      <label>Name</label>
-      <input type="text">
+    <div class="container">
+    <h1>Undirskriftarlisti</h1>
+    <form action="/insert" method="post" enctype="application/x-www-form-urlencoded">
+      <div class="userinput">
+      <label>Nafn</label>
+      <input class="form-control" type="text" name="name">
+    </div>
+    <div class="userinput">
       <label>Kennitala</label>
-      <input type="text">
-      <label>Athugasemd</label>
-      <input type="text">
-      <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-      <label for="vehicle2">Ekki birta nafn á lista</label><br>
+      <input type="text" name="nationalId">
+    </div>
+    <div class="userinput">
+      <label>Athugasemd </label>
+      <textarea name="comment" palceholder="Search here" rows="7" cols="40"></textarea>
+     </div>
+     <div class="lefty">
+      <input type="checkbox"  name="anonymous" >
+      <label for="anonymous">Ekki birta nafn á lista</label>
+    </div>
       <button type="submit">Skrifa undir</button>
-    </form>
+    </div>
+  </form>
+      <% model.forEach(m => {%>
+
+            <h3> <%= m.name %></h3>
+            <% }) %>
+
     </body>
     </html>

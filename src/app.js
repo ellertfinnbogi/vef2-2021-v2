@@ -7,7 +7,7 @@ app.locals.importantize = str => `${str}!`;
 const viewsPath = new URL('./views', import.meta.url).pathname;
 app.set('views', viewsPath);
 app.set('view engine', 'ejs');
-
+app.use(express.urlencoded({ extended: false })); // <--- middleware configuration
 app.use(express.static('./public'));
 
 app.use('/',registration);

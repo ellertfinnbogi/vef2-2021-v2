@@ -1,10 +1,33 @@
 import { Router } from 'express';
 var router = Router();
+import client from './db.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // TODO skráningar virkni
 
 router.get('/', function(req,res) {
-  res.render('pages/home');
+  const sql = "SELECT * FROM signatures"
+  var k = client.query(sql, [],(err,result) => {
+    if(err) {
+      return console.error(err.message);
+    }
+    console.log(result.rows);
+    res.render('pages/home', {model:result.rows});
+  })
+
+});
+
+router.post('/insert', function(req, res) {
+  console.log(req.body.name);
+  const sql  = "INSERT INTO signatures (name, nationalId, comment, anonymous) VALUES ($1,$2,$3,false)"
+  const signatures = [req.body.name,req.body.nationalId, req.body.comment];
+  client.query(sql,signatures,(err,result) => {
+    if(err) {
+      return console.log(err)
+    }
+    res.redirect('/')
+  })
 });
 
 
