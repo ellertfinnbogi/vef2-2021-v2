@@ -1,8 +1,7 @@
 import { Router } from 'express';
 var router = Router();
 import client from './db.js';
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 // TODO skráningar virkni
 
