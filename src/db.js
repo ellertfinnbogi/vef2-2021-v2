@@ -4,6 +4,7 @@ dotenv.config();
 
 const {
   HEROKU_POSTGRESQL_BLACK_URL: connectionString,
+  NODE_ENV: nodeEnv = 'development',
 } = process.env;
 
 console.log(process.env)
