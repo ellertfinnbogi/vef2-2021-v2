@@ -22,5 +22,5 @@ console.log(process.env.PORT)
 
 // Verðum að setja bara *port* svo virki á heroku
 app.listen(port, () => {
-  console.info(`Server running at http://localhost:${port}/`);
+  console.info(`Server running at https://localhost:${port}/`);
 });
