@@ -1,6 +1,5 @@
 import pg from 'pg';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 const {
@@ -8,6 +7,7 @@ const {
 } = process.env;
 
 if (!connectionString) {
+  console.log(process.env.DATABASE_URL)
   console.error('Vantar DATABASE_URL');
   process.exit(1);
 }
