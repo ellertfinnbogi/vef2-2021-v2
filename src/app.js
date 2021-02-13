@@ -17,7 +17,7 @@ app.use('/',registration);
 const {
   PORT: port = 3000,
 } = process.env;
-
+console.log(process.env.PORT)
 // TODO setja upp rest af virkni!
 
 // Verðum að setja bara *port* svo virki á heroku

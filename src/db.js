@@ -6,8 +6,9 @@ const {
   DATABASE_URL: connectionString,
 } = process.env;
 
+console.log(process.env)
 if (!connectionString) {
-  console.log(process.env.DATABASE_URL)
+  console.log(process.env)
   console.error('Vantar DATABASE_URL');
   process.exit(1);
 }
