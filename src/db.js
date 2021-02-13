@@ -13,9 +13,9 @@ if (!connectionString) {
   console.error('Vantar DATABASE_URL');
   process.exit(1);
 }
-
+const ssl = nodeEnv !== 'development' ? { rejectUnauthorized: false } : false;
 // TODO gagnagrunnstengingar
-const pool = new pg.Pool({connectionString});
+const pool = new pg.Pool({connectionString,ssl});
 const client = await pool.connect();
 
 export default client;
