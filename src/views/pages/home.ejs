@@ -27,10 +27,19 @@
       <button type="submit">Skrifa undir</button>
     </div>
   </form>
+  <table>
+    <tr>
+      <th>Dags</th>
+      <th>Nafn</th>
+      <th>Athugasemd</th>
+    </tr>
       <% model.forEach(m => {%>
-
-            <h3> <%= m.name %></h3>
+            <tr><th><%= m.signed %></th>
+              <% if (!m.anonymous) { %>
+                <td><%= m.name %></td>
+              <% } %>
+            <td><%= m.comment %></td</tr>
             <% }) %>
-
-    </body>
-    </html>
+          </table>
+  </body>
+</html>

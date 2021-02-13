@@ -7,8 +7,8 @@ dotenv.config();
 // TODO skráningar virkni
 
 router.get('/', function(req,res) {
-  const sql = "SELECT * FROM signatures"
-  var k = client.query(sql, [],(err,result) => {
+  const sql = "SELECT * FROM signatures order by name"
+  client.query(sql, [],(err,result) => {
     if(err) {
       return console.error(err.message);
     }
@@ -19,9 +19,8 @@ router.get('/', function(req,res) {
 });
 
 router.post('/insert', function(req, res) {
-  console.log(req.body.name);
-  const sql  = "INSERT INTO signatures (name, nationalId, comment, anonymous) VALUES ($1,$2,$3,false)"
-  const signatures = [req.body.name,req.body.nationalId, req.body.comment];
+  const sql  = "INSERT INTO signatures (name, nationalId, comment, anonymous) VALUES ($1,$2,$3,$4)"
+  const signatures = [req.body.name,req.body.nationalId, req.body.comment, req.body.anonymous];
   client.query(sql,signatures,(err,result) => {
     if(err) {
       return console.log(err)
